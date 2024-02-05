@@ -938,6 +938,7 @@ ul {
 }
 
 .dark {
+   opacity: 1;
    display: block;
    position: fixed;
    top: 0;
@@ -949,8 +950,7 @@ ul {
 }
 
 .hidden {
-   // display: none !important;
-   visibility: hidden;
+   display: none !important;
 }
 
 .test {
