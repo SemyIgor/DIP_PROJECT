@@ -10,7 +10,6 @@ function startTest() {
 
 	// Окно результата тестирования
 	const testResult = document.querySelector('.test__result');
-	console.log('testResult: ', testResult);
 
 	// Затемнённый фон модального окна
 	const dark = document.querySelector('.dark');
@@ -31,9 +30,10 @@ function startTest() {
 	const testResultCross = document.querySelector('.test__result_cross');
 	testResultCross.addEventListener('click', () => hideModalDark());
 
-	// Кнопка перехода к тестированию
+	// Кнопки перехода к тестированию
 	// Предусмотрим возможное добавление такой же кнопки (querySelectorAll)
 	const startTestBnt = document.querySelectorAll('.main__btn');
+	// const plusTostudyBtn = document.querySelector('.plus__tostudy_btn');
 
 	// Кнопка начала тестириования
 	const testStartBtn = document.querySelector('.test__start_btn');

@@ -71,6 +71,13 @@
    margin: 0;
 }
 
+// @media(prefers-reduced-motion: no-preference) {
+//    :root {
+//       scroll-behavior: smooth;
+//    }
+// }
+
+
 html {
    font-size: 62.5%;
 }
@@ -834,6 +841,10 @@ ul {
       align-items: center;
       gap: 19px;
       margin-bottom: 40px;
+
+      & img {
+         cursor: pointer;
+      }
    }
 
    &__logo p {

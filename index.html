@@ -11,14 +11,14 @@
 
 <body>
    <!-- <div class="outer-shell"> -->
-   <header class="header center">
+   <header class="header center" id="header">
       <div class="header__container">
          <nav class="header__nav">
             <img src="./img/logo.svg" class="header__nav_img" alt="Logo">
-            <a href="#" class="header__nav_item">Чему вы научитесь</a>
-            <a href="#" class="header__nav_item">Процесс обучения</a>
-            <a href="#" class="header__nav_item">Стоимость</a>
-            <a href="#" class="header__nav_item">Контакты</a>
+            <a href="#technolog" class="header__nav_item anchor_technolog">Чему вы научитесь</a>
+            <a href="#how-to" name="how-to" class="header__nav_item anchor_how-to">Процесс обучения</a>
+            <a href="#price" name="price" class="header__nav_item anchor_price">Стоимость</a>
+            <a href="#contacts" name="contacts" class="header__nav_item anchor_contacts">Контакты</a>
          </nav>
          <div class="header__login">
             <a href="#" class="header__login_reg">Регистрация</a>
@@ -54,7 +54,7 @@
       </div>
    </main>
 
-   <section class="technolog center">
+   <section class="technolog center" id="technolog">
       <div class="technolog__container">
          <h2 class="technolog__header">Какие технологии вы изучите</h2>
          <div class="technolog__content">
@@ -76,17 +76,20 @@
       </div>
    </section>
 
-   <section class="how-to center">
+   <section class="how-to center" id="how-to">
       <div class="how-to__container">
          <h2 class="how-to__header">Как происходит обучение на YtYt?</h2>
          <p class="how-to__text">Обучение должно быть комфортным. Поэтому мы разработали собственную платформу для
-            обучения
-            программированию. На ней вы
-            можете не только изучать теорию, но и запускать готовые примеры и даже писать свой собственный код.
+            обучения программированию. На ней вы можете не только изучать теорию, но и запускать готовые примеры и даже
+            писать свой собственный код.
          </p>
          <div class="how-to__video">
             <div class="how-to__screen">
-               <img src="./img/how-to/howToScreen.png" alt="howToScreen">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/idDE-QZyw6w?si=yVDj0hHwUpSJox2w"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+               <!-- <img src="./img/how-to/howToScreen.png" alt="howToScreen"> -->
             </div>
             <h3 class="how-to__title">Посмотреть видео</h3>
             <div class="how-to__btn"></div>
@@ -122,7 +125,7 @@
          </div>
 
          <div class="plus__tostudy">
-            <button class="plus__tostudy_btn">Начать обучение
+            <button class="plus__tostudy_btn main__btn">Начать обучение
                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                      d="M0.292893 13.2929C-0.0976311 13.6834 -0.0976311 14.3166 0.292893 14.7071C0.683418 15.0976 1.31658 15.0976 1.70711 14.7071L0.292893 13.2929ZM15 0.999969C15 0.447684 14.5523 -3.1092e-05 14 -3.13449e-05L5 -3.05441e-05C4.44772 -3.08813e-05 4 0.447685 4 0.999969C4 1.55225 4.44772 1.99997 5 1.99997L13 1.99997L13 9.99997C13 10.5523 13.4477 11 14 11C14.5523 11 15 10.5523 15 9.99997L15 0.999969ZM1.70711 14.7071L14.7071 1.70708L13.2929 0.292862L0.292893 13.2929L1.70711 14.7071Z"
@@ -167,7 +170,7 @@
       </div>
    </section>
 
-   <section class="price center">
+   <section class="price center" id="price">
       <div class="price__container">
          <h2 class="price__header">Стоимость обучения</h2>
          <div class="price__notes">
@@ -216,7 +219,7 @@
                обучение с середины нельзя, даже если вы считаете, что уже знаете какую-то часть материала. Только так
                мы
                можем гарантировать, что вы получите все знания, предусмотренные учебной программой.</p>
-            <button class="price__go_btn">Начать обучение
+            <button class="price__go_btn main__btn">Начать обучение
                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                      d="M0.292893 13.2929C-0.0976311 13.6834 -0.0976311 14.3166 0.292893 14.7071C0.683418 15.0976 1.31658 15.0976 1.70711 14.7071L0.292893 13.2929ZM15 0.999969C15 0.447684 14.5523 -3.1092e-05 14 -3.13449e-05L5 -3.05441e-05C4.44772 -3.08813e-05 4 0.447685 4 0.999969C4 1.55225 4.44772 1.99997 5 1.99997L13 1.99997L13 9.99997C13 10.5523 13.4477 11 14 11C14.5523 11 15 10.5523 15 9.99997L15 0.999969ZM1.70711 14.7071L14.7071 1.70708L13.2929 0.292862L0.292893 13.2929L1.70711 14.7071Z"
@@ -228,7 +231,7 @@
       </div>
    </section>
 
-   <footer class="footer center">
+   <footer class="footer center" id="contacts">
       <div class="footer__container">
          <div class="footer__logos">
 
