@@ -119,6 +119,8 @@ ul {
       max-width: 1160px;
       padding-top: 18px;
       padding-bottom: 19px;
+      // padding-left: 10px;
+      // padding-right: 10px;
       padding-left: 21px;
       padding-right: 11px;
       border-radius: 75px;
@@ -145,6 +147,10 @@ ul {
          font-weight: 400;
          line-height: 104.4%;
          /* 13.572px */
+      }
+
+      &_item:hover {
+         color: #F15525;
       }
 
       &_img {
@@ -1270,5 +1276,20 @@ ul {
          margin-right: -15px;
          cursor: pointer;
       }
+   }
+}
+
+@media (max-width: 320px) {
+   .header__container {
+      max-width: 294px;
+   }
+
+   .main__header {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      margin-bottom: 18px;
+      text-align: center;
    }
 }
