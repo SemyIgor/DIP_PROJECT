@@ -700,6 +700,19 @@ ul {
   height: auto;
   cursor: pointer;
 }
+.footer__social svg:not(:nth-child(2)):hover {
+  background-color: #38BFF2;
+  border-radius: 50%;
+  transition: background-color 0.5s;
+}
+.footer__social a:nth-child(3):hover .vk-svg {
+  fill: #38BFF2;
+  transition: fill 0.5s;
+}
+.footer__social a:nth-child(4):hover .youtube-svg {
+  fill: #38BFF2;
+  transition: fill 0.5s;
+}
 .footer__nav {
   margin-left: 200px;
 }
