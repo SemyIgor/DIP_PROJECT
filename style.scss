@@ -944,7 +944,7 @@ ul {
 }
 
 .dark {
-   opacity: 1;
+   // opacity: 1;
    display: block;
    position: fixed;
    top: 0;
@@ -953,18 +953,37 @@ ul {
    height: 100%;
    background: rgba(0, 0, 0, 0.5);
    z-index: 100;
+   transition: all 1s ease;
+
+   &__hidden {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: all 1s ease;
+   }
+
+   &__shown {
+      opacity: 1;
+      transform: translateX(0);
+   }
 }
 
 .hidden {
-   display: none !important;
+   opacity: 0;
+   left: 0;
+   transform: translateY(-50%) translateX(-100%);
+   transition: all 1s ease;
+}
+
+.shown {
+   opacity: 1;
+   transform: translateY(-50%) translateX(-50%);
+   left: 50%;
 }
 
 .test {
    &__start {
       position: absolute;
-      transform: translateY(-50%) translateX(-50%);
       top: calc(50%);
-      left: 50%;
       border-radius: 30px;
       background-color: #fff;
       z-index: 200;
@@ -1027,9 +1046,7 @@ ul {
 .test {
    &__question {
       position: absolute;
-      transform: translateY(-50%) translateX(-50%);
       top: calc(50%);
-      left: 50%;
       border-radius: 30px;
       background-color: #fff;
       z-index: 200;
@@ -1120,9 +1137,7 @@ ul {
 .test {
    &__answer {
       position: absolute;
-      transform: translateY(-50%) translateX(-50%);
       top: calc(50%);
-      left: 50%;
       border-radius: 30px;
       background-color: #fff;
       z-index: 200;
@@ -1211,9 +1226,7 @@ ul {
 .test {
    &__result {
       position: absolute;
-      transform: translateY(-50%) translateX(-50%);
       top: calc(50%);
-      left: 50%;
       border-radius: 30px;
       background-color: #fff;
       z-index: 200;
@@ -1278,6 +1291,8 @@ ul {
       }
    }
 }
+
+// Не успел (
 
 @media (max-width: 320px) {
    .header__container {

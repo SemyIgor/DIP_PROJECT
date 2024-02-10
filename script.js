@@ -3,8 +3,8 @@ import startTest from './modules/tests.js';
 import scrolling from './modules/scrolling.js';
 
 effectiveRender();
-startTest();
 scrolling();
+startTest();
 
 const courses = [
 	{

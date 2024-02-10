@@ -36,7 +36,6 @@ function scrolling() {
 
 	// Кнопка лого
 	const footerLogo = document.querySelector('.footer__logo');
-	console.log('footerLogo: ', footerLogo);
 
 	// Плавный скроллинг по кнопкае лого
 	footerLogo.addEventListener('click', (event) => {

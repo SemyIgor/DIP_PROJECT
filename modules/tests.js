@@ -77,7 +77,7 @@ function startTest() {
 		// showResult();
 	});
 
-	// Описание функций
+	// Описание функций ================================
 
 	function testBegins() {
 		showModalDark();
@@ -86,32 +86,36 @@ function startTest() {
 
 	function hideModalDark() {
 		closeTestWindows();
-		dark.classList.add('hidden');
+		dark.classList.add('dark__hidden');
+		dark.classList.remove('dark__shown');
 		document.body.style.overflow = '';
 	}
 
 	function showModalDark() {
-		dark.classList.remove('hidden');
-		document.body.style.overflow = 'hidden';
+		dark.classList.remove('dark__hidden');
+		dark.classList.add('dark__shown');
+		document.body.style.overflow = 'dark';
 	}
 
 	function showTestStart() {
 		testStart.classList.remove('hidden');
+		testStart.classList.add('shown');
 	}
 
 	function showTestQuestion() {
 		testQuestion.classList.remove('hidden');
+		testQuestion.classList.add('shown');
 	}
 
 	function showTestAnswer() {
 		testAnswer.classList.remove('hidden');
+		testAnswer.classList.add('shown');
 	}
 
 	function showResult() {
 		testResult.classList.remove('hidden');
+		testResult.classList.add('shown');
 	}
-
-	// function
 
 	function getAnswer() {
 		const questionAnswers = document.querySelectorAll('.answers');
@@ -130,6 +134,10 @@ function startTest() {
 		testQuestion.classList.add('hidden');
 		testAnswer.classList.add('hidden');
 		testResult.classList.add('hidden');
+		testStart.classList.remove('shown');
+		testQuestion.classList.remove('shown');
+		testAnswer.classList.remove('shown');
+		testResult.classList.remove('shown');
 	}
 }
 
