@@ -163,6 +163,7 @@ ul {
   max-width: 638px;
 }
 .main__header {
+  width: 100%;
   color: #22253B;
   font-family: Gilroy;
   font-size: 46px;

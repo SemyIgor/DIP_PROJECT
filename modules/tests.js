@@ -1,4 +1,13 @@
 function startTest() {
+	// Bases
+	let counter = 0;
+	const questions = [
+		{ taskNo: '0', questNo: '0', text: '' },
+		{ taskNo: '1', questNo: '0', text: '' },
+		{ taskNo: '2', questNo: '0', text: '' },
+		{ taskNo: '3', questNo: '0', text: '' },
+	];
+
 	// Окно описания теста
 	const testStart = document.querySelector('.test__start');
 
@@ -139,6 +148,9 @@ function startTest() {
 		testAnswer.classList.remove('shown');
 		testResult.classList.remove('shown');
 	}
+
+	function loadQuestion() {}
+	function loadAnswer() {}
 }
 
 export default startTest;
