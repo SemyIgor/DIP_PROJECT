@@ -1,6 +1,6 @@
 function startTest() {
 	// Очки начисляются так: "верно" - 2, "не знаю" - 1, "ошибка" - 0
-	// Bases
+	// Bases data
 	let counter;
 	let pointsSum;
 	const questions = [
