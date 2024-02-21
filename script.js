@@ -1,10 +1,12 @@
 import effectiveRender from './modules/effective.js';
 import startTest from './modules/tests.js';
 import scrolling from './modules/scrolling.js';
+import burger from './modules/burger.js';
 
 effectiveRender();
 scrolling();
 startTest();
+burger();
 
 const courses = [
 	{

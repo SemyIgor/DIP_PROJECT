@@ -98,7 +98,6 @@ function startTest() {
 	];
 
 	const resultNumber = document.querySelector('.result__number');
-	console.log('resultNumber: ', resultNumber);
 
 	// Окно описания теста
 	const testStart = document.querySelector('.test__start');
@@ -227,15 +226,14 @@ function startTest() {
 
 	function showTestQuestion() {
 		if (counter < questions.length) {
-			console.log('counter: ', counter);
-
 			// Открываем окно с вопросом
 			testQuestion.classList.remove('hidden');
 			testQuestion.classList.add('shown');
 
 			// Выводим в окне номер задания
 			testQuestionNumber.textContent = `ЗАДАНИЕ №${
-				questions[counter].qNumber + 1
+				// questions[counter].qNumber + 1
+				counter + 1
 			}`;
 
 			// Выводим в окне текст задания
@@ -264,7 +262,8 @@ function startTest() {
 	function showTestAnswer(answerResult) {
 		testAnswer.classList.remove('hidden');
 		testAnswer.classList.add('shown');
-		testAnswerNumber.textContent = `ЗАДАНИЕ №${questions[counter].qNumber + 1}`;
+		// testAnswerNumber.textContent = `ЗАДАНИЕ №${questions[counter].qNumber + 1}`;
+		testAnswerNumber.textContent = `ЗАДАНИЕ №${counter + 1}`;
 		if (answerResult === 2) {
 			testAnswerTitle.textContent = `${answers[counter].correct.header}`;
 			testAnswerText.textContent = `${answers[counter].correct.text}`;
@@ -280,7 +279,9 @@ function startTest() {
 	function showResult() {
 		testResult.classList.remove('hidden');
 		testResult.classList.add('shown');
-		resultNumber.textContent = `НАБРАНО ${pointsSum} из 8`;
+		resultNumber.textContent = `НАБРАНО ${pointsSum} из ${
+			questions.length * 2
+		}`;
 	}
 
 	function getAnswer() {
@@ -293,20 +294,21 @@ function startTest() {
 			answersReceivedArray.push(answer.checked);
 			answer.checked = false; // обнуляем инпут
 		});
-		// console.log('answersReceivedArray: ', answersReceivedArray);
+
 		// Здесь будет обработка данных формы
+		// Суммирование количества набранных очков за один вопрос
 		let answerResult = 0;
+		let answersCounter = 0; // счётчик количества выбранных ответов
 		// Находим сумму очков всех инпутов
 		for (let i = 0; i < answersReceivedArray.length; i++) {
 			answerResult =
 				answerResult +
 				Number(answersReceivedArray[i]) * questions[counter].points[i];
+			if (answersReceivedArray[i] === true) answersCounter++;
 		}
-		console.log('answerResult: ', answerResult);
-		// Если выбран ответ "не знаю" вместе с правильным ответом
-		if (answerResult === 3) answerResult = 0;
+		// Если выбран не один ответ
+		if (answersCounter !== 1) answerResult = 0;
 		pointsSum += answerResult;
-		console.log('pointsSum: ', pointsSum);
 		closeTestWindows();
 		showTestAnswer(answerResult);
 	}
@@ -321,9 +323,6 @@ function startTest() {
 		testAnswer.classList.remove('shown');
 		testResult.classList.remove('shown');
 	}
-
-	function loadQuestion() {}
-	function loadAnswer() {}
 }
 
 export default startTest;

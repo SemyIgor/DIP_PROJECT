@@ -1,3 +1,4 @@
+import { dark, burgerMenu } from './export.js';
 function scrolling() {
 	// Якорные ссылки (точки скролла)
 	const technolog = document.getElementById('technolog');
@@ -6,29 +7,35 @@ function scrolling() {
 	const contacts = document.getElementById('contacts');
 	const header = document.getElementById('header');
 
-	// Кнопки навигации
-	const headerNavItems = document.querySelectorAll('.header__nav_item');
+	// Кнопки навигации, включая бургер-меню в модальном окне
+	const headerNavItems = document.querySelectorAll(
+		'.header__nav_item, .burger__nav_item'
+	);
 
 	// Плавный скроллинг по кнопкам навигации
 	headerNavItems.forEach((anchor) => {
 		if (anchor.matches('.anchor_technolog')) {
 			anchor.addEventListener('click', (event) => {
 				event.preventDefault();
+				burgerMenuClose();
 				technologScroll();
 			});
 		} else if (anchor.matches('.anchor_how-to')) {
 			anchor.addEventListener('click', (event) => {
 				event.preventDefault();
+				burgerMenuClose();
 				howToScroll();
 			});
 		} else if (anchor.matches('.anchor_price')) {
 			anchor.addEventListener('click', (event) => {
 				event.preventDefault();
+				burgerMenuClose();
 				priceScroll();
 			});
 		} else if (anchor.matches('.anchor_contacts')) {
 			anchor.addEventListener('click', (event) => {
 				event.preventDefault();
+				burgerMenuClose();
 				contactsScroll();
 			});
 		}
@@ -61,6 +68,14 @@ function scrolling() {
 
 	function headerScroll() {
 		header.scrollIntoView({ behavior: 'smooth' });
+	}
+
+	function burgerMenuClose() {
+		burgerMenu.classList.remove('shown');
+		burgerMenu.classList.add('hidden');
+		dark.classList.remove('dark__shown');
+		dark.classList.add('dark__hidden');
+		document.body.style.overflow = '';
 	}
 }
 

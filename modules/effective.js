@@ -46,7 +46,7 @@ function effectiveRender() {
 			// img06
 			url: './img/effective/effective_img-06.svg',
 			alt: 'effective_img-06',
-			header: 'Быстрый и легкий <br> возврат',
+			header: 'Быстрый и легкий возврат',
 			text: 'Если передумаете учиться – вернем деньги за 3 рабочих дня',
 		},
 	];
