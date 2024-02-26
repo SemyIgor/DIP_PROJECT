@@ -898,6 +898,7 @@ ul {
    }
 
    &__table {
+      box-sizing: border-box;
       padding: 36px 40px;
       padding-bottom: 20px;
       margin-bottom: 25px;
@@ -1134,14 +1135,30 @@ ul {
    }
 
    &__line {
+      box-sizing: border-box;
       width: 100%;
       border: 1px solid #D8D8D8;
    }
 
-   &__afterLine {
+   &__after_container {
+      box-sizing: border-box;
+      max-width: 1180px;
+      padding-right: 10px;
+      padding-left: 10px;
+      overflow: hidden;
+   }
+
+   &__after_line {
+
+      width: 100%;
       display: grid;
-      grid-template-columns: 53% 26% 21%;
+      grid-template-columns: 40vw 25vw 25vw;
+      gap: 2vw;
       padding: 28px 0;
+
+      &_item {
+         width: 100%; // Содержимое ячейки ограничим её размерами
+      }
 
       &_item a {
          color: #8E8E8E;
@@ -1741,11 +1758,41 @@ ul {
       }
 
       &__remark {
-         // align-self: flex-start;
          margin-left: calc(20px + (56 - 20) * ((100vw - 320px) / (1080 - 320)));
-         // margin-bottom: 33px;
          font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (1080 - 320)));
          line-height: 150%;
+      }
+
+      &__go {
+         // padding: 64px 40px;
+         gap: calc(20px + (39 - 10) * ((100vw - 320px) / (1080 - 320)));
+
+         &_img {
+            width: calc(75px + (91 - 75) * ((100vw - 320px) / (1080 - 320)));
+         }
+
+
+         &_text {
+            max-width: 600px;
+            font-size: calc(12px + (17 - 12) * ((100vw - 320px) / (1080 - 320)));
+            line-height: 22px; // В макете не меняется !!!
+         }
+
+         &_btn {
+            border-radius: 82px;
+            padding: calc(20px + (27 - 20) * ((100vw - 768px) / (1080 - 768))) calc(30px + (50 - 30) * ((100vw - 768px) / (1080 - 768)));
+
+            font-size: calc(15px + (20 - 15) * ((100vw - 320px) / (1080 - 320)));
+            line-height: 96.688%;
+            letter-spacing: -0.6px;
+            min-width: calc(260px + (311 - 260) * ((100vw - 768px) / (1080 - 768)));
+
+            // & svg {
+            //    margin-left: 12px; // 6
+            //    margin-bottom: -2px;
+            // }
+
+         }
       }
    }
 }
@@ -1816,6 +1863,34 @@ ul {
          height: calc(73vw * 0.7);
       }
    }
+
+   .footer {
+      &__nav {
+         margin-left: calc(20px + (200 - 20) * ((100vw - 650px) / (850 - 650)));
+      }
+
+
+      &__after_line {
+         display: grid;
+         // grid-template-columns: 53% 26% 21%;
+         padding: 28px 0;
+
+         &_item a {
+            color: #8E8E8E;
+            font-size: 16px;
+            line-height: 23px;
+         }
+
+         &_item:not(:first-child) a:hover {
+            color: #F15525;
+         }
+
+         &_item:first-child a {
+            cursor: default;
+         }
+      }
+   }
+
 }
 
 @media (max-width: 768px) {
@@ -1865,22 +1940,12 @@ ul {
    }
 
    .technolog {
-      padding-top: 90px;
+      padding-top: 50px;
 
       &__content {
          flex-direction: column;
          align-items: center;
       }
-
-      // &__lang {
-      //    &_img {
-      //       display: none;
-      //    }
-
-      //    &_imgsm {
-      //       display: block;
-      //    }
-      // }
    }
 
    .effective {
@@ -2030,6 +2095,113 @@ ul {
          font-size: 12px;
          // line-height: 141%;
       }
+
+      &__go {
+         flex-direction: column;
+         // padding: 64px 40px; 38-54
+         padding: 50px 20px;
+         gap: calc(20px + (39 - 10) * ((100vw - 320px) / (1080 - 320)));
+
+         &_img {
+            width: calc(75px + (91 - 75) * ((100vw - 320px) / (1080 - 320)));
+         }
+
+
+         &_text {
+            max-width: 600px;
+            font-size: calc(12px + (17 - 12) * ((100vw - 320px) / (1080 - 320)));
+            line-height: 22px; // В макете не меняется !!!
+         }
+
+         &_btn {
+            border-radius: 82px;
+            // padding: calc(20px + (27 - 20) * ((100vw - 768px) / (1080 - 768))) calc(30px + (50 - 30) * ((100vw - 768px) / (1080 - 768)));
+            padding: 20px 30px;
+
+            font-size: calc(15px + (20 - 15) * ((100vw - 320px) / (1080 - 320)));
+            line-height: 96.688%;
+            letter-spacing: -0.6px;
+            min-width: calc(260px + (311 - 260) * ((100vw - 768px) / (1080 - 768)));
+
+            // & svg {
+            //    margin-left: 12px; // 6
+            //    margin-bottom: -2px;
+            // }
+
+         }
+      }
+   }
+
+   .footer {
+      &__nav {
+         margin-left: 20px;
+      }
+   }
+}
+
+@media (max-width: 650px) {
+   .price {
+      padding-bottom: 40px;
+   }
+
+   .footer {
+      padding-bottom: 0;
+
+      &__container {
+         flex-direction: column;
+         align-items: center;
+         margin-bottom: 32px;
+      }
+
+      &__logos {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      &__logo {
+         margin-bottom: 28px;
+      }
+
+      &__social {
+         align-items: center;
+         margin-bottom: 23px;
+      }
+
+      &__nav {
+         margin-left: 0;
+         margin-bottom: 43px;
+      }
+
+      &__nav li {
+         text-align: center;
+      }
+
+      &__contacts {
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+
+         & p:nth-of-type(4) {
+            order: 5;
+         }
+      }
+
+      &__email {
+         margin-bottom: 35px;
+      }
+
+      &__after_line {
+         grid-template-columns: 1fr;
+
+         &_item {
+            text-align: center;
+
+            &:first-child {
+               margin-bottom: 12px;
+            }
+         }
+      }
    }
 }
 
@@ -2111,6 +2283,12 @@ ul {
          // align-self: start;
       }
 
+   }
+
+   .price {
+      &__table {
+         padding: 19px 0;
+      }
    }
 
 }
