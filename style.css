@@ -872,7 +872,8 @@ ul {
 }
 .footer__line {
   box-sizing: border-box;
-  width: 100%;
+  width: 97%;
+  margin: 0 auto;
   border: 1px solid #D8D8D8;
 }
 .footer__after_container {
@@ -1028,6 +1029,9 @@ ul {
 
 .test__start {
   position: absolute;
+  width: 90%;
+  max-width: 740px;
+  box-sizing: border-box;
   top: 50%;
   border-radius: 30px;
   background-color: #fff;

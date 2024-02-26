@@ -1136,7 +1136,8 @@ ul {
 
    &__line {
       box-sizing: border-box;
-      width: 100%;
+      width: 97%;
+      margin: 0 auto;
       border: 1px solid #D8D8D8;
    }
 
@@ -1320,6 +1321,10 @@ ul {
 .test {
    &__start {
       position: absolute;
+      // max-width: 740px;
+      width: 90%;
+      max-width: 740px;
+      box-sizing: border-box;
       top: calc(50%);
       border-radius: 30px;
       background-color: #fff;
@@ -1764,7 +1769,6 @@ ul {
       }
 
       &__go {
-         // padding: 64px 40px;
          gap: calc(20px + (39 - 10) * ((100vw - 320px) / (1080 - 320)));
 
          &_img {
@@ -1786,12 +1790,6 @@ ul {
             line-height: 96.688%;
             letter-spacing: -0.6px;
             min-width: calc(260px + (311 - 260) * ((100vw - 768px) / (1080 - 768)));
-
-            // & svg {
-            //    margin-left: 12px; // 6
-            //    margin-bottom: -2px;
-            // }
-
          }
       }
    }
