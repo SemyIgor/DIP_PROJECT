@@ -1029,8 +1029,8 @@ ul {
 
 .test__start {
   position: absolute;
-  width: 90%;
   max-width: 740px;
+  width: 90%;
   box-sizing: border-box;
   top: 50%;
   border-radius: 30px;
@@ -1084,6 +1084,9 @@ ul {
 
 .test__question {
   position: absolute;
+  max-width: 740px;
+  width: 90%;
+  box-sizing: border-box;
   top: 50%;
   border-radius: 30px;
   background-color: #fff;
@@ -1126,9 +1129,8 @@ ul {
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 96.688%;
-  letter-spacing: -0.6px;
 }
 .test__question_btn svg {
   margin-left: 12px;
@@ -1161,7 +1163,10 @@ ul {
 }
 
 .test__answer {
-  position: absolute;
+  position: relative;
+  max-width: 740px;
+  width: 90%;
+  box-sizing: border-box;
   top: 50%;
   border-radius: 30px;
   background-color: #fff;
@@ -1172,7 +1177,6 @@ ul {
   overflow: hidden;
   justify-content: center;
   padding: 36px 39px 41px 39px;
-  max-width: 740px;
 }
 .test__answer_number {
   margin-bottom: 22px;
@@ -1208,9 +1212,9 @@ ul {
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 96.688%;
-  letter-spacing: -0.6px;
+  letter-spacing: 0.6px;
 }
 .test__answer_btn svg {
   margin-left: 12px;
@@ -1218,8 +1222,10 @@ ul {
 .test__answer_cross {
   position: absolute;
   align-self: flex-end;
-  margin-top: -290px;
-  margin-right: -15px;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
   cursor: pointer;
 }
 .test__answer_checkboxes {
@@ -1238,6 +1244,9 @@ ul {
 
 .test__result {
   position: absolute;
+  max-width: 740px;
+  width: 90%;
+  box-sizing: border-box;
   top: 50%;
   border-radius: 30px;
   background-color: #fff;
@@ -1279,9 +1288,9 @@ ul {
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  font-size: 20px;
-  line-height: 96.688%;
-  letter-spacing: -0.6px;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.6px;
 }
 .test__result_btn svg {
   margin-left: 12px;
@@ -1289,8 +1298,10 @@ ul {
 .test__result_cross {
   position: absolute;
   align-self: flex-end;
-  margin-top: -15px;
-  margin-right: -15px;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
@@ -1646,6 +1657,144 @@ ul {
   }
   .footer__nav {
     margin-left: 20px;
+  }
+  .test__start {
+    padding: calc(45px + 38 * (100vw - 320px) / 448) calc(18px + 99 * (100vw - 320px) / 448) calc(38px + 3 * (100vw - 320px) / 448);
+  }
+  .test__start_title {
+    margin-bottom: 22px;
+    font-size: calc(16px + 8 * (100vw - 320px) / 448);
+    line-height: calc(21px + 5 * (100vw - 320px) / 448);
+    color: #22253B;
+    min-width: calc(213px + 293 * (100vw - 320px) / 448);
+    font-weight: 600;
+  }
+  .test__start_text {
+    margin-bottom: 20px;
+    font-size: calc(12px + 3 * (100vw - 320px) / 448);
+    line-height: calc(17px + 3 * (100vw - 320px) / 448);
+    color: #22253B;
+  }
+  .test__start_btn {
+    border: none;
+    border-radius: 82px;
+    background: #F15525;
+    padding: 27px 50px 27px 45px;
+    color: #FFF;
+    font-family: "Gilroy", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    font-size: 20px;
+    line-height: 96.688%;
+    letter-spacing: -0.6px;
+  }
+  .test__start_btn svg {
+    margin-left: 12px;
+    margin-bottom: -2px;
+  }
+  .test__start_cross {
+    position: absolute;
+    align-self: flex-end;
+    margin-top: calc(-24px + -32 * (100vw - 320px) / 448);
+    margin-right: calc(0px + -88 * (100vw - 320px) / 448);
+    cursor: pointer;
+  }
+  .test__question {
+    padding: 36px calc(23px + 16 * (100vw - 320px) / 448) 41px;
+  }
+  .test__question label {
+    font-size: calc(12px + 4 * (100vw - 320px) / 448);
+    font-weight: 500;
+    color: #22253B;
+    text-align: left;
+  }
+  .test__question_text {
+    min-width: calc(224px + 161 * (100vw - 320px) / 448);
+    margin-bottom: 31px;
+    font-size: calc(12px + 3 * (100vw - 320px) / 448);
+    line-height: calc(17px + 3 * (100vw - 320px) / 448);
+    color: #22253B;
+    text-align: left;
+  }
+  .test__question_btn svg {
+    margin-left: 6px;
+    scale: 1.3;
+  }
+  .test__question_cross {
+    margin-right: calc(-6px + -9 * (100vw - 320px) / 448);
+  }
+  .test__question_checkboxes {
+    align-self: self-start;
+    margin-bottom: 18px;
+  }
+  .test__question_form {
+    flex-direction: column;
+  }
+  .test__answer {
+    padding: 36px calc(23px + 16 * (100vw - 320px) / 448) 41px;
+  }
+  .test__answer_title {
+    margin-bottom: 22px;
+    font-size: calc(16px + 8 * (100vw - 320px) / 448);
+    line-height: calc(21px + 5 * (100vw - 320px) / 448);
+    color: #22253B;
+    min-width: calc(213px + 293 * (100vw - 320px) / 448);
+    font-weight: 600;
+  }
+  .test__answer_text {
+    min-width: calc(224px + 161 * (100vw - 320px) / 448);
+    margin-bottom: 20px;
+    font-size: calc(12px + 3 * (100vw - 320px) / 448);
+    line-height: calc(17px + 3 * (100vw - 320px) / 448);
+    color: #22253B;
+  }
+  .test__answer_btn svg {
+    margin-left: 6px;
+    scale: 1.3;
+  }
+  .test__answer_checkboxes {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .test__answer_form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .test__result {
+    padding: 36px calc(23px + 16 * (100vw - 320px) / 448) 41px;
+  }
+  .test__result_number {
+    margin-bottom: 35px;
+    margin-top: 20px;
+    background-color: #EAEAEA;
+    padding: 16px 30px 13px;
+    border-radius: 30px;
+    border: none;
+  }
+  .test__result_number img {
+    margin-bottom: 5px;
+  }
+  .test__result_text {
+    font-size: calc(16px + 2 * (100vw - 320px) / 448);
+    line-height: 22px;
+    min-width: calc(224px + 161 * (100vw - 320px) / 448);
+  }
+  .test__result_btn svg {
+    margin-left: 6px;
+    scale: 1.3;
+  }
+  .test__result_cross {
+    position: absolute;
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
   }
 }
 @media (max-width: 650px) {
