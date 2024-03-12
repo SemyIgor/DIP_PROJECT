@@ -11,7 +11,7 @@ function registration() {
 	let loginValue = '';
 	let passwordValue = '';
 	let passwordRepeatValue = '';
-	// console.log('login: ', login);
+	console.log('login: ', login);
 	// console.log('password: ', password);
 	// console.log('passwordRepeat: ', passwordRepeat);
 	// console.log('button: ', button);
