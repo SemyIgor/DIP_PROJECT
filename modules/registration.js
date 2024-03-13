@@ -12,10 +12,6 @@ function registration() {
 	let passwordValue = '';
 	let passwordRepeatValue = '';
 	console.log('login: ', login);
-	// console.log('password: ', password);
-	// console.log('passwordRepeat: ', passwordRepeat);
-	// console.log('button: ', button);
-	// console.log('registrationBtns: ', registrationBtns);
 
 	// Функция открытия окна регистрации
 	function register(event) {
@@ -108,7 +104,7 @@ function registration() {
 			// Иначе,
 		} else {
 			// Сохраним повторный пароль в отдельную переменную
-			// passwordRepeatValue = passwordRepeat.value;
+			passwordRepeatValue = passwordRepeat.value;
 			return passwordValue;
 		}
 	}
@@ -116,22 +112,50 @@ function registration() {
 	// Функция сохранения данных пользователя в localStorage
 	function saveUserData(event) {
 		event.preventDefault();
-		// Очищаем поля ввода
+		// Если все поля заполнены,
+		if (
+			loginValue !== '' &&
+			passwordValue !== '' &&
+			passwordRepeatValue !== ''
+		) {
+			// то обрабатываем введённые данные
+			console.log('Это правда!');
+			// Очищаем поля ввода
+			clearForm();
+
+			// Если в хранилище нет такого пользователя,
+			if (!localStorage.getItem(loginValue)) {
+				// то сохраняем его в localStorage
+				localStorage.setItem(loginValue, passwordValue);
+				// Иначе,
+			} else {
+				// Выводим сообщение о том, что пользователь уже существует
+				button.parentNode.children[0].classList.remove('registration__hidden');
+				button.parentNode.children[0].classList.add('registration__shown');
+				// console.log('Такой пользователь уже существует');
+			}
+		} else {
+			console.log('Это неправда');
+			clearForm();
+			register(event);
+		}
+
+		// Очищаем переменные, хранящие значение полей
+		clearFormVariables();
+	}
+
+	// Функция очистки формы
+	function clearForm() {
 		login.value = '';
 		password.value = '';
 		passwordRepeat.value = '';
+	}
 
-		// Если в хранилище нет такого пользователя,
-		if (!localStorage.getItem(loginValue)) {
-			// то сохраняем его в localStorage
-			localStorage.setItem(loginValue, passwordValue);
-			// Иначе,
-		} else {
-			// Выводим сообщение о том, что пользователь существует
-			button.parentNode.children[0].classList.remove('registration__hidden');
-			button.parentNode.children[0].classList.add('registration__shown');
-			// console.log('Такой пользователь уже существует');
-		}
+	// Функция очистки переменных формы
+	function clearFormVariables() {
+		loginValue = '';
+		passwordValue = '';
+		passwordRepeatValue = '';
 	}
 
 	// Функция скрытия сообщения о том, что пользователь уже существует
