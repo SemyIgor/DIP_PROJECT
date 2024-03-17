@@ -1,4 +1,13 @@
-import { dark, registrationBtns, burgerMenu } from './export.js';
+import {
+	dark,
+	registrationBtns,
+	localStorageKey,
+	hideBurgerMenu,
+	hideModalDark,
+	showModalDark,
+	getLocalStorageUsers,
+} from './export.js';
+
 function registration() {
 	const registration = document.querySelector('.registration');
 	const cross = registration.querySelector('.registration .test__result_cross');
@@ -8,10 +17,12 @@ function registration() {
 		'#registration__password__repeat'
 	);
 	const button = registration.querySelector('.registration__button');
+
+	let users;
+
 	let loginValue = '';
 	let passwordValue = '';
 	let passwordRepeatValue = '';
-	console.log('login: ', login);
 
 	// Функция открытия окна регистрации
 	function register(event) {
@@ -23,14 +34,13 @@ function registration() {
 		}
 		// Прячем сообщение о том, что пользователь уже существует
 		hideAlarmMessage(); // ********************************************
+
+		// Получаем данные о пользователях из localStorage
+		users = getLocalStorageUsers();
+		console.log('usersR: ', users);
+
 		// Вызываем функцию вывода формы регистрации
 		showRegistrationForm();
-	}
-
-	// Функция скрытия бургер-меню
-	function hideBurgerMenu() {
-		burgerMenu.classList.remove('shown');
-		burgerMenu.classList.add('hidden');
 	}
 
 	// Функция вывода формы регистрации
@@ -49,24 +59,6 @@ function registration() {
 		registration.classList.add('hidden');
 		// Скрываем серое окно
 		hideModalDark();
-	}
-
-	// Функция сокрытия серого окна
-	function hideModalDark() {
-		// Скрываем серое окно
-		dark.classList.add('dark__hidden');
-		dark.classList.remove('dark__shown');
-		// Разблокируем скроллинг страницы
-		document.body.style.overflow = '';
-	}
-
-	// Функция вывода серого окна
-	function showModalDark() {
-		// Выводим серое окно
-		dark.classList.remove('dark__hidden');
-		dark.classList.add('dark__shown');
-		// Блокируем скроллинг страницы под серым окном
-		document.body.style.overflow = 'hidden';
 	}
 
 	// Функция проверки ввода логина пользователя
@@ -119,29 +111,45 @@ function registration() {
 			passwordRepeatValue !== ''
 		) {
 			// то обрабатываем введённые данные
-			console.log('Это правда!');
+
 			// Очищаем поля ввода
 			clearForm();
 
-			// Если в хранилище нет такого пользователя,
-			if (!localStorage.getItem(loginValue)) {
-				// то сохраняем его в localStorage
-				localStorage.setItem(loginValue, passwordValue);
+			// Проверяем, есть ли в базе данных такой пользователь
+			if (doesThisUserExist()) {
+				console.log('Уже есть такой пользователь');
+				// Если да, то выводим сообщение пользователю
+				thisUserExistsMessage();
 				// Иначе,
 			} else {
-				// Выводим сообщение о том, что пользователь уже существует
-				button.parentNode.children[0].classList.remove('registration__hidden');
-				button.parentNode.children[0].classList.add('registration__shown');
-				// console.log('Такой пользователь уже существует');
+				console.log(`Сохраняем пользователя ${loginValue}`);
+				// Сохраняем пользователя в базу данных
+				users.push({ login: loginValue, password: passwordValue });
+				// Сохраняем базу данных в localStorage
+				localStorage.setItem(localStorageKey, JSON.stringify(users));
+				clearFormVariables();
+				hideRegistrationForm();
 			}
 		} else {
-			console.log('Это неправда');
+			console.log('Ошибка заполнения полей');
 			clearForm();
 			register(event);
 		}
-
 		// Очищаем переменные, хранящие значение полей
 		clearFormVariables();
+	}
+
+	// Функция проверки, есть ли данный пользователь в базе
+	function doesThisUserExist() {
+		if (users.length > 0) {
+			return users.some((user) => user.login === loginValue);
+		}
+	}
+
+	// Функция, выводящая сообщение о том, что такой пользователь уже есть в базе
+	function thisUserExistsMessage() {
+		button.parentNode.children[0].classList.remove('registration__hidden');
+		button.parentNode.children[0].classList.add('registration__shown');
 	}
 
 	// Функция очистки формы
@@ -164,7 +172,7 @@ function registration() {
 		button.parentNode.children[0].classList.add('registration__hidden');
 	}
 
-	console.log('button.parentNode: ', button.parentNode.children[0]);
+	// console.log('button.parentNode: ', button.parentNode.children[0]);
 
 	// Слушатель на каждую ссылку регистрации
 	registrationBtns.forEach((btn) =>
@@ -177,7 +185,7 @@ function registration() {
 	// Слушатель на потерю фокуса полем ввода login
 	login.addEventListener('change', () => {
 		loginInputTest();
-		console.log('loginValue: ', loginValue);
+		// console.log('loginValue: ', loginValue);
 	});
 
 	// Слушатель на получение фокуса полем ввода логина

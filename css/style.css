@@ -164,6 +164,24 @@ ul {
   align-items: center;
   padding-right: 11px;
 }
+.header__login__svg {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+.header__login__svg path {
+  fill: #38BFF2;
+}
+.header__login__svg:hover {
+  animation: vibrate-1 0.3s linear both;
+}
+.header__login__svg:hover path {
+  fill: #F15525;
+}
+.header__login__log {
+  color: #38BFF2;
+  font-size: 18px;
+}
 .header__login_reg {
   color: #3C3E50;
   font-family: "Gilroy";
@@ -1405,15 +1423,117 @@ ul {
 .registration__have-user {
   padding: 7px;
 }
-
 .registration__hidden {
   visibility: hidden;
   display: none;
   top: 0;
   transition: top 0.5s;
 }
-
 .registration__shown {
+  visibility: visible;
+  display: block;
+  top: -25px;
+}
+
+.authorization {
+  position: absolute;
+  max-width: 740px;
+  width: 90%;
+  box-sizing: border-box;
+  top: 50%;
+  border-radius: 30px;
+  background-color: #fff;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 41px 117px;
+}
+.authorization__title {
+  margin-bottom: 17px;
+  color: #22253B;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.authorization__text {
+  color: #22253B;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.authorization fieldset {
+  width: 80%;
+  padding: 26px 40px;
+  border-radius: 16px;
+}
+.authorization form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.authorization__item ~ .authorization__item {
+  margin-top: 10px;
+}
+.authorization label, .authorization input {
+  color: #22253B;
+  font-size: 16px;
+  font-weight: 400;
+}
+.authorization input {
+  min-width: 176px;
+}
+.authorization__item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.authorization__button {
+  align-self: flex-end;
+  padding: 12px 25px 12px 20px;
+  border: none;
+  border-radius: 19px;
+  background: #38BFF2;
+  color: #FFF;
+  font-family: "Gilroy", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  font-size: 15px;
+  line-height: 96.688%;
+  letter-spacing: 0.6px;
+  min-width: 176px;
+}
+.authorization__button__block {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-top: 20px;
+}
+.authorization__button__block span {
+  color: red;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 100;
+}
+.authorization__button:hover {
+  background: #F15525;
+  animation: vibrate-1 0.3s linear both;
+}
+.authorization__have-user {
+  padding: 7px;
+}
+.authorization__hidden {
+  visibility: hidden;
+  display: none;
+  top: 0;
+  transition: top 0.5s;
+}
+.authorization__shown {
   visibility: visible;
   display: block;
   top: -25px;

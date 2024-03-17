@@ -37,6 +37,43 @@
 						<a href="#" class="header__login_reg registration__btn"
 							>Регистрация</a
 						>
+						<span class="header__login__log authorization__hidden"></span>
+						<a href="#" class="header__login__exit authorization__hidden"
+							><svg
+								class="header__login__svg"
+								version="1.0"
+								xmlns="http://www.w3.org/2000/svg"
+								width="349.000000pt"
+								height="347.000000pt"
+								viewBox="0 0 349.000000 347.000000"
+								preserveAspectRatio="xMidYMid meet"
+							>
+								<g
+									transform="translate(0.000000,347.000000) scale(0.100000,-0.100000)"
+									fill="none"
+									stroke="none"
+								>
+									<path
+										d="M254 3311 c-80 -36 -74 80 -74 -1448 0 -1273 1 -1360 18 -1393 9 -19
+31 -42 47 -51 27 -16 1362 -289 1410 -289 35 0 88 35 107 71 13 25 18 55 18
+116 l0 83 353 0 c335 0 354 1 385 20 61 37 62 45 62 510 0 465 -1 473 -62 510
+-61 37 -145 21 -184 -37 -18 -26 -19 -54 -22 -385 l-3 -358 -264 0 -265 0 0
+1081 c0 1178 2 1125 -55 1163 -13 8 -122 45 -242 81 -120 36 -222 67 -228 70
+-5 2 230 4 523 4 l532 1 0 -333 c0 -186 4 -347 10 -366 29 -103 150 -129 226
+-50 l29 30 3 442 c2 414 1 444 -16 476 -10 19 -34 43 -53 53 -32 17 -87 18
+-1124 18 -1039 0 -1092 -1 -1131 -19z"
+									/>
+									<path
+										d="M2806 2390 c-66 -20 -108 -99 -87 -163 7 -19 51 -73 106 -127 l95
+-95 -392 -5 c-365 -5 -395 -6 -421 -24 -58 -39 -74 -123 -37 -184 37 -61 48
+-62 472 -62 l382 0 -101 -102 c-79 -81 -102 -111 -107 -140 -19 -104 91 -189
+186 -144 19 9 132 114 250 234 229 230 240 245 224 319 -8 35 -446 477 -489
+493 -32 12 -41 12 -81 0z"
+									/>
+								</g>
+							</svg>
+							<!-- <img class="header__login__exit" src="./img/exit48.svg" alt=""	/> -->
+						</a>
 						<button class="header__login_btn button">
 							<svg
 								width="10"
@@ -793,7 +830,6 @@
 						</div>
 
 						<div class="registration__button__block">
-							<!-- <span class="registration__hidden" -->
 							<div class="registration__have-user">
 								<span class="registration__shown"
 									>Такой пользователь уже существует</span
@@ -801,6 +837,49 @@
 							</div>
 							<button class="registration__button" type="submit">
 								Зарегистрировать
+							</button>
+						</div>
+					</form>
+				</fieldset>
+			</div>
+
+			<div class="authorization hidden">
+				<div class="test__result_cross">
+					<img src="./img/test/modalCross.svg" alt="authorization_cross" />
+				</div>
+
+				<h3 class="authorization__title">Авторизация</h3>
+
+				<fieldset>
+					<form action="#">
+						<div class="authorization__item">
+							<label for="authorization__login">Введите логин: </label>
+							<input
+								type="text"
+								id="authorization__login"
+								name="authorization__login"
+								autocomplete="off"
+								required
+							/>
+						</div>
+
+						<div class="authorization__item">
+							<label for="authorization__password">Введите пароль: </label>
+							<input
+								type="password"
+								id="authorization__password"
+								name="authorization__password"
+								autocomplete="new-password"
+								required
+							/>
+						</div>
+
+						<div class="authorization__button__block">
+							<div class="authorization__error__block authorization__hidden">
+								<span>Ошибка авторизации</span>
+							</div>
+							<button class="authorization__button" type="submit">
+								Авторизоваться
 							</button>
 						</div>
 					</form>
