@@ -2092,6 +2092,24 @@ ul {
          // line-height: calc(20px + (24 - 20) * ((100vw - 768px) / (1080 - 768)));
       }
    }
+
+   .authorization {
+      &__title {
+         font-size: calc(20px + 4*(100vw - 768px) / (1080 - 768));
+         line-height: calc(20px + 4*(100vw - 768px) / (1080 - 768));
+      }
+
+      &__text {
+         font-size: calc(14px + (16 - 14) * ((100vw - 768px) / (1080 - 768)));
+         line-height: calc(20px + (24 - 20) * ((100vw - 768px) / (1080 - 768)));
+      }
+
+      & label,
+      & input {
+         font-size: calc(14px + (16 - 14) * ((100vw - 768px) / (1080 - 768)));
+         // line-height: calc(20px + (24 - 20) * ((100vw - 768px) / (1080 - 768)));
+      }
+   }
 }
 
 @media (max-width: 850px) {
@@ -2634,6 +2652,52 @@ ul {
    }
 
    .registration {
+      padding: 41px 36px;
+
+      &__title {
+         font-size: 20px;
+         line-height: 20px;
+      }
+
+      &__text {
+         font-size: 14px;
+         line-height: 20px;
+      }
+
+      & label,
+      & input {
+         font-size: 14px;
+         // line-height: calc(20px + (24 - 20) * ((100vw - 768px) / (1080 - 768)));
+      }
+
+      &__item {
+         flex-direction: column;
+         gap: 0;
+      }
+
+      &__button__block {
+         position: relative;
+         flex-direction: column;
+         gap: 10px;
+
+         & span {
+            // position: absolute;
+            // top: -20px;
+            text-align: center;
+         }
+      }
+
+      &__have-user {
+         width: 100%;
+         border: 2px solid red;
+         position: absolute;
+         top: -25px;
+         border-radius: 11px;
+         background-color: #dbdbdb;
+      }
+   }
+
+   .authorization {
       padding: 41px 36px;
 
       &__title {

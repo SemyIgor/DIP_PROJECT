@@ -1655,6 +1655,17 @@ ul {
   .registration label, .registration input {
     font-size: calc(14px + 2 * (100vw - 768px) / 312);
   }
+  .authorization__title {
+    font-size: calc(20px + 4 * (100vw - 768px) / 312);
+    line-height: calc(20px + 4 * (100vw - 768px) / 312);
+  }
+  .authorization__text {
+    font-size: calc(14px + 2 * (100vw - 768px) / 312);
+    line-height: calc(20px + 4 * (100vw - 768px) / 312);
+  }
+  .authorization label, .authorization input {
+    font-size: calc(14px + 2 * (100vw - 768px) / 312);
+  }
 }
 @media (max-width: 850px) {
   .header__nav {
@@ -2067,6 +2078,40 @@ ul {
     text-align: center;
   }
   .registration__have-user {
+    width: 100%;
+    border: 2px solid red;
+    position: absolute;
+    top: -25px;
+    border-radius: 11px;
+    background-color: #dbdbdb;
+  }
+  .authorization {
+    padding: 41px 36px;
+  }
+  .authorization__title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .authorization__text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .authorization label, .authorization input {
+    font-size: 14px;
+  }
+  .authorization__item {
+    flex-direction: column;
+    gap: 0;
+  }
+  .authorization__button__block {
+    position: relative;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .authorization__button__block span {
+    text-align: center;
+  }
+  .authorization__have-user {
     width: 100%;
     border: 2px solid red;
     position: absolute;

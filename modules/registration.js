@@ -64,7 +64,7 @@ function registration() {
 	// Функция проверки ввода логина пользователя
 	function loginInputTest() {
 		// Если логин короче 3-х символов,
-		if (login.value.length < 3) {
+		if (login.value.length < 3 || login.value.length > 8) {
 			// то обнуляем введённое значение
 			login.value = '';
 			// Иначе,
@@ -172,6 +172,20 @@ function registration() {
 		button.parentNode.children[0].classList.add('registration__hidden');
 	}
 
+	// Функция изменения расцветки символов в поле input в зависимости от их количества
+	function colorfullInput(min, max, field) {
+		// Если количество символов слишком мало или слишком велико,
+		if (field.value.length < min || field.value.length > max) {
+			// то их цвет красный (основной цвет сайта)
+			// console.log('field.value.length: ', field.value.length);
+			field.style.color = '#F15525';
+			// иначе
+		} else {
+			// цвет символов зелёный
+			field.style.color = 'green';
+		}
+	}
+
 	// console.log('button.parentNode: ', button.parentNode.children[0]);
 
 	// Слушатель на каждую ссылку регистрации
@@ -191,11 +205,17 @@ function registration() {
 	// Слушатель на получение фокуса полем ввода логина
 	login.addEventListener('focus', () => hideAlarmMessage());
 
+	// Слушатель ввода символов логина для цветовой индикации
+	login.addEventListener('input', () => colorfullInput(3, 8, login));
+
 	// Слушатель на поле ввода password
 	password.addEventListener('change', () => {
 		passwordInputTest();
 		console.log('passwordValue: ', passwordValue);
 	});
+
+	// слушатель ввода символов пароля для цветовой индексации
+	password.addEventListener('input', () => colorfullInput(5, 32, password));
 
 	// Слушатель на поле ввода passwordRepeat
 	passwordRepeat.addEventListener('change', () => {
