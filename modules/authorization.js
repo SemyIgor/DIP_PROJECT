@@ -5,11 +5,15 @@ import {
 	getLocalStorageUsers,
 	universalHideBlock,
 	universalShowBlock,
+	headerLoginExit,
+	headerLoginLog,
+	registrationBtns,
+	headerLoginBtns,
 } from './export.js';
 
 function authorization() {
-	// Кнопки открытия окна авторизации (хедер и модалка)
-	const headerLoginBtns = document.querySelectorAll("[class*='__login_btn']");
+	// // Кнопки открытия окна авторизации (хедер и модалка)
+	// const headerLoginBtns = document.querySelectorAll("[class*='__login_btn']");
 
 	// Окно авторизации
 	const authorization = document.querySelector('.authorization');
@@ -23,7 +27,6 @@ function authorization() {
 	const authorizationErrorBlock = authorization.querySelector(
 		'.authorization__error__block'
 	);
-	// console.dir('errorBlock: ', errorBlock);
 
 	// Поле ввода логина
 	const login = authorization.querySelector('#authorization__login');
@@ -35,19 +38,6 @@ function authorization() {
 
 	// Кнопка в окне авторизации
 	const button = authorization.querySelector('.authorization__button');
-	// console.log('button: ', button);
-
-	// Блок с картинкой двери выхода
-	const headerLoginExit = document.querySelector('.header__login__exit');
-	console.log('headerLoginExit: ', headerLoginExit);
-
-	// Ссылки со словом "Регистрация"
-	const registrationBtns = document.querySelectorAll('.registration__btn');
-	console.log('registrationBtns: ', registrationBtns);
-
-	// Логин авторизованного пользователя
-	const headerLoginLog = document.querySelector('.header__login__log');
-	console.log('headerLoginLog: ', headerLoginLog);
 
 	let users;
 	let authorizedUserLogin = '';
@@ -119,28 +109,11 @@ function authorization() {
 	// Функция проверки авторизации
 	function checkAuthorization(event) {
 		event.preventDefault();
-		console.log('doesThisUserCorrect(): ', doesThisUserCorrect());
+		// console.log('doesThisUserCorrect(): ', doesThisUserCorrect());
 
 		if (doesThisUserCorrect()) {
-			// Сохраняем логин авторизованного пользователя
-			authorizedUserLogin = login.value;
-
-			// Отображаем иконку выходной двери
-			universalShowBlock(headerLoginExit);
-
-			// Отображаем логин авторизованного пользователя
-			headerLoginLog.textContent = authorizedUserLogin; // Присваиваем значение
-			universalShowBlock(headerLoginLog);
-
-			// Прячем кнопки "Войти"
-			headerLoginBtns.forEach((headerLoginBtn) => {
-				universalHideBlock(headerLoginBtn);
-			});
-
-			// Прячем ссылку со словом "регистрация"
-			registrationBtns.forEach((registrationBtn) => {
-				universalHideBlock(registrationBtn);
-			});
+			// Выполняем авторизацию пользователя
+			loginingBlock();
 
 			// Убираем окно авторизации с экрана
 			hideAuthorizationForm();
@@ -148,6 +121,28 @@ function authorization() {
 			console.log('Пользователь не авторизован');
 			universalShowBlock(authorizationErrorBlock);
 		}
+	}
+
+	function loginingBlock() {
+		// // Сохраняем логин авторизованного пользователя ***
+		authorizedUserLogin = login.value;
+
+		// Отображаем иконку выходной двери ***
+		universalShowBlock(headerLoginExit);
+
+		// Отображаем логин авторизованного пользователя ***
+		headerLoginLog.textContent = authorizedUserLogin; // Присваиваем значение
+		universalShowBlock(headerLoginLog);
+
+		// Прячем кнопки "Войти" ***
+		headerLoginBtns.forEach((headerLoginBtn) => {
+			universalHideBlock(headerLoginBtn);
+		});
+
+		// Прячем ссылку со словом "регистрация" ***
+		registrationBtns.forEach((registrationBtn) => {
+			universalHideBlock(registrationBtn);
+		});
 	}
 
 	function exitAuthorization() {

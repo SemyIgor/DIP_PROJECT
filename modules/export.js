@@ -1,9 +1,25 @@
 // Затемнённый фон модального окна
 export const dark = document.querySelector('.dark');
 export const burgerMenu = document.querySelector('.burger__menu');
-export const registrationBtns = document.querySelectorAll('.registration__btn');
+// export const registrationBtns = document.querySelectorAll('.registration__btn');
 export const localStorageKey = 'schoolUsers';
 // export const users = getLocalStorageUsers();
+
+// Блок с картинкой двери выхода
+export const headerLoginExit = document.querySelector('.header__login__exit');
+
+// Логин авторизованного пользователя
+export const headerLoginLog = document.querySelector('.header__login__log');
+
+// Ссылки со словом "Регистрация"
+export const registrationBtns = document.querySelectorAll('.registration__btn');
+
+// Кнопки открытия окна авторизации (хедер и модалка)
+export const headerLoginBtns = document.querySelectorAll(
+	"[class*='__login_btn']"
+);
+
+// export let authorizedUserLogin = '';
 
 export function getLocalStorageUsers() {
 	return localStorage.getItem(localStorageKey)

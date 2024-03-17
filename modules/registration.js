@@ -1,11 +1,16 @@
 import {
 	dark,
+	headerLoginExit,
+	headerLoginLog,
 	registrationBtns,
+	headerLoginBtns,
 	localStorageKey,
 	hideBurgerMenu,
 	hideModalDark,
 	showModalDark,
 	getLocalStorageUsers,
+	universalHideBlock,
+	universalShowBlock,
 } from './export.js';
 
 function registration() {
@@ -24,6 +29,8 @@ function registration() {
 	let passwordValue = '';
 	let passwordRepeatValue = '';
 
+	let authorizedUserLogin = '';
+
 	// Функция открытия окна регистрации
 	function register(event) {
 		// Блокируем действие по умолчанию для ссылки на регистрацию
@@ -37,7 +44,6 @@ function registration() {
 
 		// Получаем данные о пользователях из localStorage
 		users = getLocalStorageUsers();
-		console.log('usersR: ', users);
 
 		// Вызываем функцию вывода формы регистрации
 		showRegistrationForm();
@@ -127,7 +133,9 @@ function registration() {
 				users.push({ login: loginValue, password: passwordValue });
 				// Сохраняем базу данных в localStorage
 				localStorage.setItem(localStorageKey, JSON.stringify(users));
+				loginingBlock(); // ******************************************
 				clearFormVariables();
+				// Здесь включить экран с зарегистрированным пользователем !!!
 				hideRegistrationForm();
 			}
 		} else {
@@ -137,6 +145,28 @@ function registration() {
 		}
 		// Очищаем переменные, хранящие значение полей
 		clearFormVariables();
+	}
+
+	function loginingBlock() {
+		// // Сохраняем логин авторизованного пользователя ***
+		authorizedUserLogin = loginValue;
+
+		// Отображаем иконку выходной двери ***
+		universalShowBlock(headerLoginExit);
+
+		// Отображаем логин авторизованного пользователя ***
+		headerLoginLog.textContent = authorizedUserLogin; // Присваиваем значение
+		universalShowBlock(headerLoginLog);
+
+		// Прячем кнопки "Войти" ***
+		headerLoginBtns.forEach((headerLoginBtn) => {
+			universalHideBlock(headerLoginBtn);
+		});
+
+		// Прячем ссылку со словом "регистрация" ***
+		registrationBtns.forEach((registrationBtn) => {
+			universalHideBlock(registrationBtn);
+		});
 	}
 
 	// Функция проверки, есть ли данный пользователь в базе
@@ -177,7 +207,6 @@ function registration() {
 		// Если количество символов слишком мало или слишком велико,
 		if (field.value.length < min || field.value.length > max) {
 			// то их цвет красный (основной цвет сайта)
-			// console.log('field.value.length: ', field.value.length);
 			field.style.color = '#F15525';
 			// иначе
 		} else {
