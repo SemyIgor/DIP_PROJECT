@@ -76,7 +76,6 @@ function authorization() {
 
 		// Получаем данные о пользователях из localStorage
 		users = getLocalStorageUsers();
-		console.log('usersA: ', users);
 
 		// Вызываем функцию вывода формы авторизации
 		showAuthorizationForm();
